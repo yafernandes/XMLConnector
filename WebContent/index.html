@@ -1,0 +1,53 @@
+<html>
+<head>
+<title>XML Connector</title>
+<meta http-equiv="Cache-Control" content="no-store" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js" type="text/javascript"></script>
+<link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" rel="stylesheet"
+	integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"
+	integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+<script src="./mstrgdc-1.0.js" type="text/javascript"></script>
+<script src="./connector.js" type="text/javascript"></script>
+</head>
+<style>
+/* Disables progress bar transition so it avoids 100% completion status with incomplete bar. */
+.progress-bar {
+	-webkit-transition: none;
+	transition: none;
+}
+</style>
+<body>
+	<div class="container">
+		<div class="text-center">
+			<img src="favicon.png" class="img-rounded" style="width: 64px" />
+			<h2>XML Connector</h2>
+		</div>
+		<form id="upload_form" method="POST" enctype="multipart/form-data" action="upload">
+			<div class="input-group">
+				<span class="input-group-addon">Table name</span> <input class="form-control" id="tableName" />
+			</div>
+			<br />
+			<div class="input-group">
+				<span class="input-group-addon">XML format</span> <select id="stylesheet" class="form-control">
+					<option value="NewYorkDemographics.xsl" selected>New York Demographics</option>
+					<option value="HistoricalTextData.xsl">Historical Text Data</option>
+				</select>
+			</div>
+			<br />
+			<div class="input-group">
+				<span class="input-group-addon">Files</span> <input class="form-control" id="file_selection" type="file"
+					name="file[]" multiple>
+			</div>
+			<br />
+			<button class="btn btn-primary center-block" type="submit">Submit</button>
+		</form>
+		<div class="progress">
+			<div class="progress-bar progress-bar-info" id="progress_bar" role="progressbar" aria-valuenow="0" aria-valuemin="0"
+				aria-valuemax="100" style="width: 0%">0% Upload Complete</div>
+		</div>
+	</div>
+
+</body>
+</html>
